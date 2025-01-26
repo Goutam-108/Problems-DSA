@@ -1,0 +1,27 @@
+
+
+#include <stdbool.h>
+
+bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target) {
+    if (matrixSize == 0 || matrixColSize == NULL || *matrixColSize == 0) {
+        return false;
+    }
+
+    int row = 0;
+    int col = *matrixColSize - 1;
+
+    while (row < matrixSize && col >= 0) {
+        int current = matrix[row][col];
+
+        if (current == target) {
+            return true;
+        } else if (current < target) {
+            row++;
+        } else {
+            col--;
+        }
+    }
+
+    return false;
+}
+
