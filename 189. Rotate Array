@@ -1,0 +1,28 @@
+
+void reverse(vector<int> &nums,int start,int end)
+{
+    while(start<=end)
+    {
+        int temp=nums[start];
+        nums[start]=nums[end];
+        nums[end]=temp;
+        start++;
+        end--;
+    }
+}
+
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        if (n == 0) return; 
+        
+        k = k % n; 
+        
+        int size = n - 1;  
+        reverse(nums,0,size-k);
+        reverse(nums,size-k+1,size);
+        reverse(nums,0,size);
+    }
+};
