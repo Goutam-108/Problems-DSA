@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void Subsequence(int arr[], int size, int ind, vector<int> &ds)
+{
+    if(ind == size)
+    {
+        for(auto it:ds)
+        {
+            cout<<it<<" ";
+        }
+        cout<<endl;
+        if(ds.size() == 0)
+            cout<<"{ }";
+        return ;
+    }
+    ds.push_back(arr[ind]);
+    Subsequence(arr, size, ind+1, ds);
+    ds.pop_back();
+    Subsequence(arr, size, ind+1, ds);
+}
+
+
+int main(){
+    int arr[] = {3,2,1};
+    int n=3;
+    vector<int> ds;
+    Subsequence(arr, n, 0, ds);
+}
